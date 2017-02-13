@@ -1,11 +1,26 @@
 // TicTac JS by Gboyega
-var TicTacGame;
+var TicTacGame, gl, debug = true;
 
 document.addEventListener("DOMContentLoaded", function() {
 
   TicTacGame = new TicTac ();
+  initGL();
+  drawGL();
+
 
 });
+
+function initGL() {
+  var canvas = document.getElementById('game-canvas');
+  if (debug) console.log(canvas);
+  gl = canvas.getContext('webgl');
+  gl.viewport(0, 0, canvas.width, canvas.height);
+  gl.clearColor(1,0,0,1);
+}
+
+function drawGL() {
+  gl.clear(gl.COLOR_BUFFER_BIT);
+}
 
 
 
